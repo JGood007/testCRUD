@@ -1,0 +1,14 @@
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\bin\Debug\netcoreapp2.2\sampleCRUD.deps.json
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\bin\Debug\netcoreapp2.2\sampleCRUD.runtimeconfig.json
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\bin\Debug\netcoreapp2.2\sampleCRUD.runtimeconfig.dev.json
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\bin\Debug\netcoreapp2.2\sampleCRUD.dll
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\bin\Debug\netcoreapp2.2\sampleCRUD.pdb
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.csprojAssemblyReference.cache
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.csproj.CoreCompileInputs.cache
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.RazorAssemblyInfo.cache
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.RazorAssemblyInfo.cs
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.AssemblyInfoInputs.cache
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.AssemblyInfo.cs
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.RazorTargetAssemblyInfo.cache
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.dll
+C:\Users\sinocencio001\source\repos\sampleCRUD\sampleCRUD\obj\Debug\netcoreapp2.2\sampleCRUD.pdb
