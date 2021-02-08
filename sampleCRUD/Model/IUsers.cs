@@ -7,6 +7,7 @@ namespace sampleCRUD.Model
 {
     public interface IUsers
     {
+        Login LoginUser(Login users);
         Users CreateUser(Users users);
         IEnumerable<Users> GetUsers();
         Users GetUsers(int id);

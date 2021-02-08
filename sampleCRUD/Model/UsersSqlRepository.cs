@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace sampleCRUD.Model
@@ -8,10 +13,12 @@ namespace sampleCRUD.Model
     public class UsersSqlRepository : IUsers
     {
         private readonly AppDbContext context;
+        private readonly IConfiguration configuration;
 
-        public UsersSqlRepository(AppDbContext context)
+        public UsersSqlRepository(AppDbContext context, IConfiguration configuration)
         {
             this.context = context;
+            this.configuration = configuration;
         }
 
         public Users CreateUser(Users users)
@@ -42,6 +49,15 @@ namespace sampleCRUD.Model
            return context.Users.Find(id);
         }
 
+        public Login LoginUser(Login users)
+        {
+            var userprofile = context.Users.FirstOrDefault(e => e.email == users.email); 
+
+            users.token = GenerateJSONWebToken(userprofile);
+
+            return users;
+        }
+
         public Users UpdateUser(int id, Users modifiedUser)
         {
             //modifiedUser.id = id;
@@ -59,5 +75,28 @@ namespace sampleCRUD.Model
 
             return updateUser;
         }
+
+        private string GenerateJSONWebToken(Users user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[] {
+                new Claim(JwtRegisteredClaimNames.NameId, user.id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.email),
+                new Claim("datelogin", DateTime.Now.ToString())
+                //new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+
+            var token = new JwtSecurityToken(configuration["Jwt:Issuer"],
+              configuration["Jwt:Issuer"],
+              claims,
+              expires: DateTime.Now.AddMinutes(120),
+              signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
     }
 }

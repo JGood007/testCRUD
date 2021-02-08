@@ -37,6 +37,11 @@ namespace sampleCRUD.Model
             return _usersList.FirstOrDefault(e => e.id == id);
         }
 
+        public Login LoginUser(Login users)
+        {
+            throw new NotImplementedException();
+        }
+
         public Users UpdateUser(int id, Users modifiedUser)
         {
             Users modUser = _usersList.FirstOrDefault(e => e.id == id);
