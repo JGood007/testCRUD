@@ -66,6 +66,7 @@ namespace sampleCRUD.Controllers
             {
                 Users moduser = new Users()
                 {
+                    id= id,
                     name = modifyUser.name,
                     email = modifyUser.email,
                     password = dataProtector.Protect(modifyUser.password),
