@@ -34,6 +34,7 @@ namespace sampleCRUD
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("myAppDBConnection"))
+                //, dboption => dboption.EnableRetryOnFailure()
                 );
 
 
