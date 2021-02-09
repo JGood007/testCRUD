@@ -14,14 +14,14 @@ namespace sampleCRUD.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class EmployeeController : ControllerBase
     {
         private readonly IUsers users;
         private readonly IDataProtector dataProtector;
 
         //UsersMockRepository UsersMock = new UsersMockRepository();
 
-        public UsersController(IUsers users, IDataProtectionProvider dataProtectionProvider, DPPurposeStrings dPPurposeStrings)
+        public EmployeeController(IUsers users, IDataProtectionProvider dataProtectionProvider, DPPurposeStrings dPPurposeStrings)
         {
             this.users = users;
             dataProtector = dataProtectionProvider.CreateProtector(dPPurposeStrings.ClientIDKey);
