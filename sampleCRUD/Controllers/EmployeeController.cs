@@ -57,7 +57,7 @@ namespace sampleCRUD.Controllers
 
         // PUT api/users/5
         [HttpPut("{id}")]
-        public ActionResult<Users> Put(int id, [FromForm] Users modifyUser)
+        public ActionResult<Users> Put(int id, Users modifyUser)
         {
             var currentUser = HttpContext.User;
             var nameid = Convert.ToInt32(currentUser.Claims.FirstOrDefault(e => e.Type == ClaimTypes.NameIdentifier).Value);
