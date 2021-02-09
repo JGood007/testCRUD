@@ -37,12 +37,12 @@ namespace sampleCRUD.CustomAttributes
             }
             else
             {
-                var nameid = Convert.ToInt32(user.Claims.FirstOrDefault(e => e.Type == ClaimTypes.NameIdentifier).Value);
+                var emailclaim = user.Claims.FirstOrDefault(e => e.Type == ClaimTypes.Email).Value;
 
 
                 if (entity != null)
                 {
-                    if (nameid == entity.id && entity.email == value.ToString())
+                    if (emailclaim == value.ToString())
                     {
                         return ValidationResult.Success;
                     }
@@ -65,6 +65,5 @@ namespace sampleCRUD.CustomAttributes
         {
             return $"Email is required!";
         }
-
     }
 }

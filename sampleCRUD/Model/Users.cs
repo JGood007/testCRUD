@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace sampleCRUD.Model
 {
-    public class Users
+    public class Users: UserBase
     {
         public int id { get; set; }
-        [Required(ErrorMessage = "Name is required")]
-        public string name { get; set; }        
-        [EmailUniqueAttribute]
-        [EmailAddress]
-        public string email { get; set; }
+        //[Required(ErrorMessage = "Name is required")]
+        //public string name { get; set; }        
+        //[EmailUniqueAttribute]
+        //[EmailAddress]
+        //public string email { get; set; }
         public DateTime email_verified_at { get; set; }
         [Required(ErrorMessage = "Password is required")]
         [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]

@@ -57,50 +57,47 @@ namespace sampleCRUD.Controllers
 
         // PUT api/users/5
         [HttpPut("{id}")]
-        public ActionResult<Users> Put(int id, Users modifyUser)
+        public ActionResult<Users> Put(int id, UsersUpdate modifyUser)
         {
-            var currentUser = HttpContext.User;
-            var nameid = Convert.ToInt32(currentUser.Claims.FirstOrDefault(e => e.Type == ClaimTypes.NameIdentifier).Value);
+            //var currentUser = HttpContext.User;
+            //var nameid = Convert.ToInt32(currentUser.Claims.FirstOrDefault(e => e.Type == ClaimTypes.NameIdentifier).Value);
 
-            if (nameid == id)
-            {
-                Users moduser = new Users()
-                {
-                    id= id,
-                    name = modifyUser.name,
-                    email = modifyUser.email,
-                    password = dataProtector.Protect(modifyUser.password),
-                };
-                return users.UpdateUser(id, moduser);
-            }
+            //if (nameid == id)
+            //{
+            Users moduser = users.GetUsers(id);
+            moduser.name = modifyUser.name;
+            moduser.email = modifyUser.email;
 
-            var errorLog = new Error()
-            {
-                Code = "400",
-                Message = $"You're not allowed to edit this id({id})!"
-            };
+            return users.UpdateUser(id, moduser);
+            //}
 
-            return BadRequest(errorLog);
+            //var errorLog = new Error()
+            //{
+            //    Code = "400",
+            //    Message = $"You're not allowed to edit this id({id})!"
+            //};
+
+            //return BadRequest(errorLog);
         }
 
         // DELETE api/users/5
         [HttpDelete("{id}")]
         public ActionResult<Users> Delete(int id)
         {
-            var currentUser = HttpContext.User;
-            var nameid = Convert.ToInt32(currentUser.Claims.FirstOrDefault(e => e.Type == ClaimTypes.NameIdentifier).Value);
+            //var currentUser = HttpContext.User;
+            //var nameid = Convert.ToInt32(currentUser.Claims.FirstOrDefault(e => e.Type == ClaimTypes.NameIdentifier).Value);
 
-            if (nameid == id)
-            {
+            //if (nameid == id)
+            //{
                 return users.DeleteUser(id);
-            }
-            var errorLog = new Error()
-            {
-                Code = "400",
-                Message = $"You're not allowed to delete this id({id})!"
-            };
+            //}
+            //var errorLog = new Error()
+            //{
+            //    Code = "400",
+            //    Message = $"You're not allowed to delete this id({id})!"
+            //};
 
-            return BadRequest(errorLog);
+            //return BadRequest(errorLog);
         }
     }
 }
