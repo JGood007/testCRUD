@@ -26,7 +26,7 @@ namespace sampleCRUD.Controllers
         // POST api/register
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult Post([FromBody] Users newuser)
+        public IActionResult Post(Users newuser)
         {
             if (ModelState.ErrorCount == 0)
             {
