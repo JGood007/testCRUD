@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using sampleCRUD.Model;
 using sampleCRUD.Securities;
 
@@ -26,7 +27,7 @@ namespace sampleCRUD.Controllers
         // POST api/register
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult Post(Users newuser)
+        public IActionResult Post([FromForm] Users newuser)
         {
             if (ModelState.ErrorCount == 0)
             {

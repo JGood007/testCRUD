@@ -26,7 +26,7 @@ namespace sampleCRUD.Controllers
         [AllowAnonymous]
         [HttpPost]
         //public IActionResult Post([FromBody] Login user)
-        public IActionResult Post(Login user)
+        public IActionResult Post([FromForm] Login user)
         {
             var checkuser = users.GetUsers().ToList().Find(e => e.email == user.email && dataProtector.Unprotect(e.password)== user.password);
 
