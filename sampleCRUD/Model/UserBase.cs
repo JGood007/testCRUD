@@ -11,7 +11,8 @@ namespace sampleCRUD.Model
     {
         [Required(ErrorMessage = "Name is required")]
         public string name { get; set; }
-        [EmailUniqueAttribute]
+        //[EmailUniqueAttribute]
+        [Required(ErrorMessage = "Email is required")]
         [EmailAddress]
         public string email { get; set; }
     }
